@@ -1,0 +1,38 @@
+import { getLangFromURL } from "../utils/getLangFromURL";
+
+// Sets each navlink to connect to a specific language subpath + tag 
+export function updateNavLinks() {
+  // Get the language from the URL
+  const lang = getLangFromURL();
+
+  // All the navlinks have a data-link before a data-tag,
+  // using the dataset property we can isolate each one 
+  document.querySelectorAll('nav a[data-link]').forEach(a => {
+    const tag = a.dataset.tag;
+    a.href = tag ? `/${lang}/${tag}/` : `/${lang}/`;
+  });
+}
+
+// Highlight the active navLink, based on the URL
+export function highlightActiveNav() {
+  document.querySelectorAll('nav a[data-link]').forEach(a => {
+    console.log(a.getAttribute('href'));
+    // If the link in the navlink is not the current URL path, then set to false
+    // If the link in the navlink IS the current URL path, then set it to true/active
+    a.classList.toggle('active', a.getAttribute('href') === location.pathname);
+  })
+}
+
+// Initialize navlinks to not reload the page (SPA logic using History API)
+export function initNav() {
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[data-link]'); // get the closest element of the click
+    if (!link) return;  // if there is no link when clicked, just stop here
+    e.preventDefault(); // prevent page reload
+
+    // Using the history API, pushState adds a browser session to the stack
+    // dispatching the popstate event will trigger the session update, with no page reload
+    history.pushState({}, '', link.href)
+    window.dispatchEvent(new Event('popstate'));
+  })
+}
