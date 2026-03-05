@@ -1,0 +1,21 @@
+{
+    "nav": {
+        "all": "All",
+        "technology": "Technology",
+        "math": "Mathematics",
+        "science": "Science",
+        "linguistics": "Linguistics",
+        "literature": "Literature",
+        "music": "Music",
+        "politics": "Politics",
+        "history": "History",
+        "geography": "Geography"
+    },
+    "title": {
+        "tab": "The Pokrok Notes",
+        "page": "THE POKROK NOTES"
+    },
+    "post": {
+        "not_translated": "This post isn't available in English yet."
+    }
+}
