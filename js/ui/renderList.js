@@ -43,8 +43,8 @@ function renderCard(post, lang) {
     .join('');
 
   return `
-    <article class="card">
-      <div class="card-meta">
+    <article class="">
+      <div class="flex padding2">
         <span class="card-tag">${tag}</span>
         <div class="card-flags">${flags}</div>
       </div>

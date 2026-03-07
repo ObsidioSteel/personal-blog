@@ -8,12 +8,15 @@
 /* Variables */
 :root {
   --color-white: hsl(0, 0%, 100%);
+  --color-light-grey: hsl(0, 0%, 75%);
   --color-grey: hsl(0, 0%, 50%);
-  --color-black: hsl(0, 0%, 0%);
+  --color-dark-grey: hsl(0, 0%, 25%);
+  --color-black: hsl(0, 0%, 8%);
   --color-accent: hsl(60, 80%, 90%);
   --ff: "Times New Roman", serif;
   --ff2: "Helvetica";
   --p: 1rem/1.5em var(--ff);
+  --span: 800 1rem/1em var(--ff2);
   --h1: 600 3rem/1.2em var(--ff2);
   --h2: 600 2rem/1.2em var(--ff2);
   --button-text: 1.5rem/1em var(--ff2);
@@ -32,7 +35,9 @@ html {
 }
 
 body {
-  background-color: var(--color-grey);
+  background-color: var(--color-black);
+  width: 80%;
+  margin: 0 auto;
 }
 
 h1 {
@@ -45,6 +50,22 @@ h2 {
   color: var(--color-white);
 }
 
+p {
+  font: var(--p);
+  color: var(--color-white);
+}
+
+a {
+  font: var(--p);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+span {
+  font: var(--span);
+  color: var(--color-light-grey);
+}
+
 button {
   border: none;
   background: none;
@@ -52,13 +73,25 @@ button {
   font: var(--button-text);
 }
 
-/* Utility Classes */
-section {
-  width: 90%;
-  max-width: 1080px;
-  margin: 0 auto;
+hr {
+  color: var(--color-white);
 }
 
+article {
+  border-radius: 1rem;
+  border-color: var(--color-white);
+  border-width: 0.125rem;
+}
+
+select {
+  border: none;
+  background: none;
+  color: var(--color-white);
+  font: var(--p);
+  appearance: none;
+}
+
+/* Utility Classes */
 .center {
   text-align: center;
 }
@@ -70,14 +103,22 @@ section {
 .flex {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex;
   gap: var(--spacing4);
   flex-wrap: wrap;
 }
 
 .flex>* {
   flex: 1;
-  min-width: 400px;
+}
+
+.flex-right {
+  flex: 0;
+  margin-left: auto;
+}
+
+.flex-spaced {
+  justify-content: space-between;
 }
 
 .padding1 {
@@ -134,4 +175,15 @@ section {
 
 .margin7 {
   margin: var(--spacing7) auto;
+}
+
+/* Custom Styling */
+.nav-text {
+  font: var(--ff2);
+  font-size: 1.25rem;
+}
+
+.active {
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
