@@ -1,3 +1,9 @@
+/* Importing Fonts */
+@font-face {
+  font-family: "Great Vibes";
+  src: "/assets/fonts/GreatVibes-Wmr4.ttf";
+}
+
 /* Reset */
 * {
   margin: 0;
@@ -11,14 +17,16 @@
   --color-light-grey: hsl(0, 0%, 75%);
   --color-grey: hsl(0, 0%, 50%);
   --color-dark-grey: hsl(0, 0%, 25%);
-  --color-black: hsl(0, 0%, 8%);
+  --color-black: hsl(0, 0%, 10%);
   --color-accent: hsl(60, 80%, 90%);
   --ff: "Times New Roman", serif;
   --ff2: "Helvetica";
+  --ff3: "Great Vibes";
   --p: 1rem/1.5em var(--ff);
   --span: 800 1rem/1em var(--ff2);
-  --h1: 600 3rem/1.2em var(--ff2);
+  --h1: 600 4rem/1.2em var(--ff3);
   --h2: 600 2rem/1.2em var(--ff2);
+  --nav-text: 400 1.25rem/1em var(--ff2);
   --button-text: 1.5rem/1em var(--ff2);
   --spacing1: 4px;
   --spacing2: 8px;
@@ -36,8 +44,6 @@ html {
 
 body {
   background-color: var(--color-black);
-  width: 80%;
-  margin: 0 auto;
 }
 
 h1 {
@@ -78,7 +84,6 @@ hr {
 }
 
 article {
-  border-radius: 1rem;
   border-color: var(--color-white);
   border-width: 0.125rem;
 }
@@ -89,6 +94,11 @@ select {
   color: var(--color-white);
   font: var(--p);
   appearance: none;
+}
+
+section {
+  margin: 0 auto;
+  width: 70rem;
 }
 
 /* Utility Classes */
@@ -115,6 +125,7 @@ select {
 .flex-right {
   flex: 0;
   margin-left: auto;
+  margin-right: 1rem;
 }
 
 .flex-spaced {
@@ -179,11 +190,39 @@ select {
 
 /* Custom Styling */
 .nav-text {
-  font: var(--ff2);
-  font-size: 1.25rem;
+  font: var(--nav-text);
+  border-radius: 2rem;
+}
+
+.nav-text:hover {
+  background-color: var(--color-dark-grey);
 }
 
 .active {
   background-color: var(--color-white);
   color: var(--color-black);
+  pointer-events: none;
+}
+
+.card-image {
+  height: 12rem;
+  width: 100%;
+  background-color: yellow;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing5);
+}
+
+.card {
+  border-radius: 1rem;
+  flex: 1 1 calc(calc(100% - calc(2*var(--spacing5)))/3);
+  max-width: calc(calc(100% - calc(2*var(--spacing5)))/3);
+}
+
+#app {
+  margin-top: var(--spacing5);
+  margin-bottom: var(--spacing7);
 }

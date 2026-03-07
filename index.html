@@ -6,7 +6,7 @@
     <script type="module" src="/js/main.js"></script>
   </head>
 <body>
-  <div class="flex">
+  <div class="flex padding3">
     <select id="lang-switcher" class="flex-right">
       <option value="en">English</option>
       <option value="fr">Français</option>
@@ -16,18 +16,20 @@
       <option value="zh">中文</option>
     </select>
   </div>
-  <h1 data-i18n="title.page" class="center"></h1>
-  <nav class="center flex flex-spaced padding2">
-    <a data-link data-tag="" data-i18n="nav.all" class="padding4 nav-text"></a>
-    <a data-link data-tag="technology" data-i18n="nav.technology" class="padding4 nav-text"></a>
-    <a data-link data-tag="math" data-i18n="nav.math" class="padding4 nav-text"></a>
-    <a data-link data-tag="linguistics" data-i18n="nav.linguistics" class="padding4 nav-text"></a>
-    <a data-link data-tag="literature" data-i18n="nav.literature" class="padding4 nav-text"></a>
-    <a data-link data-tag="history" data-i18n="nav.history" class="padding4 nav-text"></a>
-  </nav>
-    <hr class="">
-  <main id="app">
-    <!-- article cards will show up here -->
-  </main>
+  <section>
+    <h1 data-i18n="title.page" class="center margin5"></h1>
+    <nav class="center flex flex-spaced padding1">
+      <a data-link data-tag="" data-i18n="nav.all" class="padding2 margin2 nav-text"></a>
+      <a data-link data-tag="technology" data-i18n="nav.technology" class="padding2 margin2 nav-text"></a>
+      <a data-link data-tag="math" data-i18n="nav.math" class="padding2 margin2 nav-text"></a>
+      <a data-link data-tag="linguistics" data-i18n="nav.linguistics" class="padding2 margin2 nav-text"></a>
+      <a data-link data-tag="literature" data-i18n="nav.literature" class="padding2 margin2 nav-text"></a>
+      <a data-link data-tag="history" data-i18n="nav.history" class="padding2 margin2 nav-text"></a>
+    </nav>
+      <hr class="margin2">
+    <main id="app" class="">
+      <!-- article cards will show up here -->
+    </main>
+  </section>
 </body>
 </html>

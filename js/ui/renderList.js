@@ -27,6 +27,12 @@ export async function renderList(tag = null) {
   container.innerHTML = `
     <div class="card-grid">
         ${filtered.map(post => renderCard(post, lang)).join('')}
+        ${filtered.map(post => renderCard(post, lang)).join('')}
+        ${filtered.map(post => renderCard(post, lang)).join('')}
+        ${filtered.map(post => renderCard(post, lang)).join('')}
+        ${filtered.map(post => renderCard(post, lang)).join('')}
+        ${filtered.map(post => renderCard(post, lang)).join('')}
+        ${filtered.map(post => renderCard(post, lang)).join('')}
     </div>
   `;
 }
@@ -43,7 +49,8 @@ function renderCard(post, lang) {
     .join('');
 
   return `
-    <article class="">
+    <article class="card">
+      <div class="card-image"></div>
       <div class="flex padding2">
         <span class="card-tag">${tag}</span>
         <div class="card-flags">${flags}</div>
