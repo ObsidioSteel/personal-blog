@@ -1,0 +1,19 @@
+[
+    {
+        "slug": "starting-a-blog",
+        "date": "2026-03-04",
+        "tags": [
+            "technology"
+        ],
+        "translations": {
+            "en": {
+                "title": "Starting A Blog",
+                "description": "Why I decided to write my own blog site, and what purpose it serves."
+            },
+            "de": {
+                "title": "GERMAN TITLE",
+                "description": "GERMAN DESCRIPTION"
+            }
+        }
+    }
+]

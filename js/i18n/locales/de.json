@@ -3,13 +3,9 @@
         "all": "Alle",
         "technology": "Technologie",
         "math": "Mathematik",
-        "science": "Wissenschaft",
         "linguistics": "Linguistik",
         "literature": "Literatur",
-        "music": "Musik",
-        "politics": "Politik",
-        "history": "Geschichte",
-        "geography": "Geographie"
+        "history": "Geschichte"
     },
     "title": {
         "tab": "Das Pokrok Notes",
