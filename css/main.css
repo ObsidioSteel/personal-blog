@@ -28,6 +28,7 @@
   --h2: 600 2rem/1.2em var(--ff2);
   --nav-text: 400 1.25rem/1em var(--ff2);
   --button-text: 1.5rem/1em var(--ff2);
+  --card-link: 800 1rem/1em var(--ff2);
   --spacing1: 4px;
   --spacing2: 8px;
   --spacing3: 16px;
@@ -104,6 +105,10 @@ section {
 /* Utility Classes */
 .center {
   text-align: center;
+}
+
+.fill-width {
+  width: 100%;
 }
 
 .hidden {
@@ -210,6 +215,10 @@ section {
   background-color: yellow;
 }
 
+.card-title {
+  margin-bottom: var(--spacing1);
+}
+
 .card-grid {
   display: flex;
   flex-wrap: wrap;
@@ -217,12 +226,19 @@ section {
 }
 
 .card {
-  border-radius: 1rem;
   flex: 1 1 calc(calc(100% - calc(2*var(--spacing5)))/3);
   max-width: calc(calc(100% - calc(2*var(--spacing5)))/3);
 }
 
-#app {
-  margin-top: var(--spacing5);
-  margin-bottom: var(--spacing7);
+.card-flags {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-desc {
+  margin-bottom: var(--spacing2);
+}
+
+.card-link {
+  font: var(--card-link);
 }

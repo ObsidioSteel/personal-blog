@@ -1,4 +1,5 @@
 import { fetchPosts } from "../api/content-api.js";
+import { updateWidth } from "../utils/changeStyle.js";
 import { getLangFromURL } from "../utils/getLangFromURL.js";
 
 // have the flag emojis ready so I can use them easier
@@ -21,8 +22,10 @@ export async function renderList(tag = null) {
   // Filter by the active tag, if there is one
   const filtered = tag ? posts.filter(p => p.tags.includes(tag)) : posts;
 
+  // Initialize and reset container width
   console.log(filtered);
   const container = document.getElementById('app');
+  updateWidth(container, "");
 
   container.innerHTML = `
     <div class="card-grid">
@@ -43,6 +46,7 @@ function renderCard(post, lang) {
   const content = post.translations[lang] ?? post.translations['en'];
   const slug = post.slug;
   const tag = post.tags[0].toUpperCase();
+  const coverImage = `/content/posts/${slug}/images/cover.png`
 
   const flags = Object.keys(post.translations)
     .map(l => `<span title="${l}">${FLAGS[l] ?? l}</span>`)
@@ -50,14 +54,16 @@ function renderCard(post, lang) {
 
   return `
     <article class="card">
-      <div class="card-image"></div>
-      <div class="flex padding2">
+      <img src="${coverImage}" class="fill-width">
+      <div class="flex margin2">
         <span class="card-tag">${tag}</span>
         <div class="card-flags">${flags}</div>
       </div>
-      <h2 class="card-title">${content.title}</h2>
-      <p class="card-desc">${content.description}</p>
-      <a href="/${lang}/post/${slug}/" data-link class="card-link">Read more</a>
+      <div class="card-info">
+        <h2 class="card-title">${content.title}</h2>
+        <p class="card-desc">${content.description}</p>
+        <a href="/${lang}/post/${slug}/" data-link class="card-link">Read more</a>
+      </div>
     </article>
   `;
 }
