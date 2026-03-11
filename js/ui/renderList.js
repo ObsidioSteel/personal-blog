@@ -1,4 +1,5 @@
 import { fetchPosts } from "../api/content-api.js";
+import { loadLanguage, t } from "../i18n/i18n.js";
 import { updateWidth } from "../utils/changeStyle.js";
 import { getLangFromURL } from "../utils/getLangFromURL.js";
 
@@ -27,21 +28,24 @@ export async function renderList(tag = null) {
   const container = document.getElementById('app');
   updateWidth(container, "");
 
+  await loadLanguage(lang);
+  const read_more = t("card.read_more");
+
   container.innerHTML = `
     <div class="card-grid">
-        ${filtered.map(post => renderCard(post, lang)).join('')}
-        ${filtered.map(post => renderCard(post, lang)).join('')}
-        ${filtered.map(post => renderCard(post, lang)).join('')}
-        ${filtered.map(post => renderCard(post, lang)).join('')}
-        ${filtered.map(post => renderCard(post, lang)).join('')}
-        ${filtered.map(post => renderCard(post, lang)).join('')}
-        ${filtered.map(post => renderCard(post, lang)).join('')}
+        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
+        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
+        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
+        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
+        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
+        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
+        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
     </div>
   `;
 }
 
 // Renders the card for the blog post
-function renderCard(post, lang) {
+function renderCard(post, lang, read_more) {
   // English default fallback + get post information
   const content = post.translations[lang] ?? post.translations['en'];
   const slug = post.slug;
@@ -62,7 +66,7 @@ function renderCard(post, lang) {
       <div class="card-info">
         <h2 class="card-title">${content.title}</h2>
         <p class="card-desc">${content.description}</p>
-        <a href="/${lang}/post/${slug}/" data-link class="card-link">Read more</a>
+        <a href="/${lang}/post/${slug}/" data-link class="card-link">${read_more}</a>
       </div>
     </article>
   `;

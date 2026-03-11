@@ -13,5 +13,8 @@
     },
     "post": {
         "not_translated": "This post isn't available in English yet."
+    },
+    "card": {
+        "read_more": "Read more"
     }
 }

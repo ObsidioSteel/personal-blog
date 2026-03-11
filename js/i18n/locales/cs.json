@@ -1,0 +1,20 @@
+{
+    "nav": {
+        "all": "Všichni",
+        "technology": "Technologie",
+        "math": "Matematika",
+        "linguistics": "Lingvistika",
+        "literature": "Literatura",
+        "history": "Historie"
+    },
+    "title": {
+        "tab": "Pokrokovy poznámky",
+        "page": "Pokrokovy poznámky"
+    },
+    "post": {
+        "not_translated": "Tento příspěvek zatím není dostupný v angličtině."
+    },
+    "card": {
+        "read_more": "Čtěte více"
+    }
+}
