@@ -1,0 +1,20 @@
+{
+    "nav": {
+        "all": "Kaikki",
+        "technology": "Techniikka",
+        "math": "Mathematiikka",
+        "linguistics": "Kielitiede",
+        "literature": "Kirjallisuus",
+        "history": "Historia"
+    },
+    "title": {
+        "tab": "Pokrokin muistiinpanot",
+        "page": "Pokrokin muistiinpanot"
+    },
+    "post": {
+        "not_translated": "Tämä kirjoitus ei ole vielä saatavilla englanniksi."
+    },
+    "card": {
+        "read_more": "Lue lisää"
+    }
+}
