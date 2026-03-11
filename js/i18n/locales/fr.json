@@ -1,0 +1,20 @@
+{
+    "nav": {
+        "all": "Tous",
+        "technology": "Technologie",
+        "math": "Mathématiques",
+        "linguistics": "Linguistique",
+        "literature": "Littérature",
+        "history": "Histoire"
+    },
+    "title": {
+        "tab": "Les Notes Pokrok",
+        "page": "Les Notes Pokrok"
+    },
+    "post": {
+        "not_translated": "Ce billet n'est pas encore disponible en anglais."
+    },
+    "card": {
+        "read_more": "En savoir plus"
+    }
+}
