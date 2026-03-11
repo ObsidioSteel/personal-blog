@@ -1,0 +1,20 @@
+{
+    "nav": {
+        "all": "全部",
+        "technology": "技术",
+        "math": "数学",
+        "linguistics": "语言学",
+        "literature": "文学",
+        "history": "历史"
+    },
+    "title": {
+        "tab": "Pokrok 笔记",
+        "page": "Pokrok 笔记"
+    },
+    "post": {
+        "not_translated": "PLACEHOLDER_TOO_HARD_TO_TRANSLATE"
+    },
+    "card": {
+        "read_more": "阅读更多"
+    }
+}
