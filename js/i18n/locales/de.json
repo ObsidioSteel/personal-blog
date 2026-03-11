@@ -8,10 +8,13 @@
         "history": "Geschichte"
     },
     "title": {
-        "tab": "Das Pokrok Notes",
-        "page": "Das Pokrok Notes"
+        "tab": "Die Pokrok-Notizen",
+        "page": "Die Pokrok-Notizen"
     },
     "post": {
         "not_translated": "This post isn't available in German yet."
+    },
+    "card": {
+        "read_more": "Leis weiter"
     }
 }
