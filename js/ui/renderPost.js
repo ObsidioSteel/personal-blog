@@ -29,8 +29,8 @@ export async function renderPost(slug) {
   // change styling to fit article
   postTitle.style.fontSize = "3.5rem";
   postTitle.style.marginBottom = "var(--spacing2)";
-  postDesc.style.fontSize = "1.5rem";
-  postDesc.style.lineHeight = "1.75rem";
+  postDesc.style.fontSize = "1.75rem";
+  postDesc.style.lineHeight = "2rem";
 
   updateWidth(container, "40rem")
 

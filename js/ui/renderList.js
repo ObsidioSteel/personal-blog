@@ -34,12 +34,6 @@ export async function renderList(tag = null) {
   container.innerHTML = `
     <div class="card-grid">
         ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
-        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
-        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
-        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
-        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
-        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
-        ${filtered.map(post => renderCard(post, lang, read_more)).join('')}
     </div>
   `;
 }

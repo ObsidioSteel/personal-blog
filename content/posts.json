@@ -1,18 +1,14 @@
 [
     {
         "slug": "starting-a-blog",
-        "date": "2026-03-04",
+        "date": "2026-03-11",
         "tags": [
             "technology"
         ],
         "translations": {
             "en": {
-                "title": "Starting A Blog",
-                "description": "Why I decided to write my own blog site, and what purpose it serves."
-            },
-            "de": {
-                "title": "GERMAN TITLE",
-                "description": "GERMAN DESCRIPTION"
+                "title": "Why I Decided to Write My Own Blog",
+                "description": "Having a blog is one of the many first projects a web developer can try, and a useful one at that."
             }
         }
     }

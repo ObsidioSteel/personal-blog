@@ -22,10 +22,11 @@
   --ff: "Times New Roman", serif;
   --ff2: "Helvetica";
   --ff3: "Great Vibes";
-  --p: 1rem/1.5em var(--ff);
+  --p: 1.25rem/1.5em var(--ff);
   --span: 800 1rem/1em var(--ff2);
   --h1: 600 4rem/1.2em var(--ff3);
   --h2: 600 2rem/1.2em var(--ff2);
+  --h3: 600 1.75rem/1.2em var(--ff2);
   --nav-text: 400 1.25rem/1em var(--ff2);
   --button-text: 1.5rem/1em var(--ff2);
   --card-link: 800 1rem/1em var(--ff2);
@@ -54,6 +55,11 @@ h1 {
 
 h2 {
   font: var(--h2);
+  color: var(--color-white);
+}
+
+h3 {
+  font: var(--h3);
   color: var(--color-white);
 }
 
@@ -95,6 +101,12 @@ select {
   color: var(--color-white);
   font: var(--p);
   appearance: none;
+}
+
+ol {
+  margin-left: 3rem;
+  font: var(--p);
+  color: var(--color-white);
 }
 
 section {

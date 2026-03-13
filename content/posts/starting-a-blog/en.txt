@@ -1,1 +1,51 @@
-<p>This is an article about why I started a blog.</p>
+<p>Usually when people start a blog, it is using a CMS, or Content Management System. I am not saying that people who use these tools don't deserve to have a blog, but if I am in computer science, and do not have the skill to write a blog from scratch; am I really a software developer? This question bothered me until I was able to finish a relatively workable version of this blog, in which I can now say that I can make a blog from scratch.</p>
+<br>
+<p>Is it industry standard? No. Is it professional? Also no. Is it mobile-responsive? No, but it can be eventually. The goal of this blog is to update it over time; whenever I feel like programming in JavaScript, or scripting up some HTML & CSS. Perhaps it might look professional within a few months, and I was originally planning to integrate my own CMS with this; but as of now I am quite proud of what I have so far.</p>
+<br>
+<p>To me, a blog should have three main functions:</p>
+<ol>
+    <li>Sorting/Scrolling through a list of posts</li>
+    <li>Selecting a specific post</li>
+    <li>Reading a post</li>
+</ol>
+<br>
+<p>My blog currently supports these three functions, with manually translated UI options for English, French, German, Czech, Finnish, and Chinese. I plan to practice these languages in the near future; and since I do not have someone to talk to in many of these languages, I figured making a multilingual blog would be fun. Finnish is my favourite language in the world, and yet I know of nobody who can speak it with me. So, I will write it here, and try to use it to motivate me to continue practicing it.</p>
+<br>
+<h3>Why not use packages or plugins to assist you?</h3>
+<br>
+<p>I strongly believe that modern web development is too bloated. I also find myself looking at abstractions upon abstractions; removing layers of logic that prevent me from seeing how the webpage directly interacts with the code. I am not saying that frameworks such as React or Angular are particularly useless, I am just saying that I prefer to under-engineer my tech stack, and force myself to build what I need until I really feel like I need to use someone else's code.</p>
+<br>
+<p>My articles are also written in a txt file, with HTML syntax. I don't need syntax highlighting for HTML, and I can gradually introduce different tags to improve the quality of each post. I also want to learn how to write HTML the same way that I use markdown (maybe I can write a markdown to HTML converter from scratch... that could be fun).</p>
+<br> 
+<p>In a nutshell, I am basically stating that you should let your tools match your project, instead of making your project match your tools. If you have to invent features to justify using a framework as heavy as React, or create tables too verbose for your use case so you can use Postgres or MongoDB, then you aren't learning those tools out of necessity.</p>
+<br>
+<p>If you want to practice using a forklift, you should be focusing on lifting items that are heavy enough to make the forklift worthwhile. Otherwise, what's the point?</p>
+<br>
+<h3>Are there any other features you plan to add?</h3>
+<br>
+<p>Of course, I have many ideas. To make it brief, here is a list of things that I want to add to this blog in the future:</p>
+<br>
+<ol>
+    <li>Footer section with links</li>
+    <li>Pagination for homepage selection</li>
+    <li>Search bar to query a specific post</li>
+    <li>Author section at the end of a post</li>
+    <li>Modal popups for non-translated articles</li>
+    <li>Adding the date an article was posted in the title area</li>
+</ol>
+<br>
+<p>I think I will write a few articles and enjoy what I have so far; I have tons to talk about and do not struggle with coming up with content ideas. My main issue is time, passion, and learning. I do not have the time to debug JavaScript all day, my passion is not JavaScript, and although I have learned/reviewed a lot of JS by coding this project from scratch, it is not something I think I will need since I do not plan on being that invested in web development.</p>
+<br>
+<p>So, of course I plan to add these things eventually, but now that this project is live and actually works; I will not prioritize it above other ideas I have for projects. There are other projects that inspire me a lot more, and those projects use languages that I am more invested in. My first programming language was C#, using Unity as a kid on my laptop, and I miss tinkering around with the logic of a solution instead of the wording of the problem.</p>
+<br>
+<h3>Why not just use AI, now that you've made it?</h3>
+<br>
+<p>To me, that logical process I mentioned is what made me fall in love with computer science, and programming in the first place. Translating logic into language, and having the computer translate that language into output, is what motivates me to get better at this skill. AI steals that joy from me, a joy that I had from 2015 up until about 2023. It's been a few years since I've been using AI, and although I was never a "heavy" user, I have used it enough to know that I will not sell my passion in exchange for productivity.</p>
+<br>
+<p>Of course, most of these additions I listed look easily doable, <em>in theory</em>. In reality, coding without AI and debugging everything by hand using documentation and forums, just like I was doing back in 2015 is quite the challenge. Compared to modern-day solutions, including "agentic" development, what I have built here looks insanely trivial. I know an AI probably could do this project better than I could, and have written better initial intuitions.</p>
+<br>
+<p>At the end of the day, I want to love what I do. I want to know what I am doing, and I want to understand that I am learning what I want to learn. If AI takes the learning away from me, I will eventually be building projects because I can, not projects because I want those solutions to exist. I disagree with the "code is cheap" argument, and suggest that ideas are even cheaper.</p>
+<br>
+<p>Anyone can "build". I invite you to try and have "fun" instead. That is, if you haven't forgotten how to have fun programming :)</p>
+<br>
+<p>Have a wonderful day, and go drink some water.</p>
