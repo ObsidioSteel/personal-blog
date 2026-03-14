@@ -5,35 +5,34 @@ export async function fetchPosts() {
   return res.json();
 }
 
-export async function fetchPost(slug, lang) {
-  const res = await fetch(`/content/posts/${slug}/${lang}.txt`);
+export async function getPostLanguage(slug, lang) {
+  // fetch the specific post from the json "database"
+  const res = await fetch('/content/posts.json');
+  const posts = await res.json();
+  const post = posts.filter(p => p.slug === slug)[0];
 
-  console.log(res);
-
-  if (!res.ok) {
-    return null;
+  if (post.translations[lang]) {
+    return lang;
+  } else {
+    return 'en';
   }
-
-  const html = await res.text();
-
-  console.log(html);
-
-  return html;
 }
+
+export async function fetchPost(slug, lang) {
+  const postLang = await getPostLanguage(slug, lang);
+  const res = await fetch(`/content/posts/${slug}/${postLang}.txt`);
+  return await res.text();
+}
+
 
 // function to get the title, description, and date of the post
 export async function fetchPostInfo(slug, lang) {
-  const res = await fetch('/content/posts.json');
+  const postLang = await getPostLanguage(slug, lang);
 
+  const res = await fetch(`/content/posts.json`);
   const posts = await res.json();
-
-  console.log(posts);
-
   const post = posts.filter(p => p.slug === slug)[0];
-
-  console.log(post);
-
-  const postInfo = post.translations[lang] ?? post.translations['en'];
+  const postInfo = post.translations[postLang];
 
   return [post.date, postInfo.title, postInfo.description];
 }
