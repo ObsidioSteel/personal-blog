@@ -1,10 +1,13 @@
 # Personal Blog
 
-This is a simple, under-engineered blog using vanilla HTML/CSS & JS.
+This is a simple, under-engineered SPA (single page application) blog site
+using vanilla HTML/CSS & JS.
 
-I plan to upgrade this and integrate it with a CMS in the future, with no
-intentions of rewriting it using a front-end framework. All of the code
-is hand-written by me, in order to practice web architecture development.
+I plan to improve upon this project over time, and eventually get it to be
+as professional as I possibly can, without any external packages or any
+dependencies. I was originally planning to build a CMS and backend solution
+on top of this; now I feel it is unnecessary since I have already done this
+much without it.
 
 ## Architecture/Design
 
@@ -21,42 +24,42 @@ How I imagined this was to think of reusability, so if I were to create a
 post, how could I construct a format where I can create a structure that
 can be rendered again and again.
 
-The file ``post-template.html`` defines a template of what a post page looks
-like, and this way I can just import content without the need to start
-each new page from scratch.
+To accomplish this, I made a file routing system that serves a langauge-specific
+HTML article in a .txt file. I did this because I cannot serve an HTML file
+other than `index.html`, without breaking my rewrite rules in my `serve.json`. I
+figured that it would be easiest to do it this way; more on it later.
 
 For styling, I used ``main.css`` to define some global styling variables:
 
 1. Fonts (with font-family)
 2. Colors
 3. Default Values (margin: 0, padding: 0)
-4. Spacing (in 0.25rem increments, to make the site "flow" better)
-
-Then, I used component-level styling, to prevent one large styling file.
-I prefer this system over just one ``styles.css``, because I think each part
-of the site should have partitioned customizability.
+4. Spacing (in 7 different increments, to standardize sizing)
 
 This is basically a modular approach to styling, which I inspired from
 TailwindCSS. Instead of using Tailwind, though, I figured I could just
 write my own styling variables in raw CSS and use them across the website,
-which also makes implementing dark mode later, much easier.
+applying custom CSS classes across all elements.
 
-Again, I don't know how scalable this is towards a CMS, but thinking about
-this in a maintainable sense, I strongly believe this is a good system.
+I do plan to eventually make this blog mobile-responsive; the CSS may need a
+partial rewrite or restructuring to accommodate modular mobile responsiveness.
 
 ## Application Layer
 
-Since this is not a content management system (yet, hopefully), I only need
-to worry about a GET command, because posts exist as .json files already.
+Since this is not a content management system, I only need to worry about a
+GET command, because posts exist as .json files already. Therefore, I only needed
+a few fetching GET-like commands in my `content-api.json`:
 
-There are two functions I would need:
+1. fetchPosts(), for the homepage to list all of the blogposts
+2. fetchPost(slug, lang), for the page to load an article with a language
+3. getPostLanguage(slug, lang), for the localization to default to English
+4. fetchPostInfo(slug, lang), for the title, description, and date of a post
 
-1. getPosts(), for the homepage to list all of the blogposts
-2. getPost(slug, lang), for the page to load an article with a language
-
-By defining my initial application layer as just GET commands, once I have
-more functions in my CMS (CRUD-like functionality), then all I need to do
-is add the DELETE, POST, and PUT HTTP functions.
+This is, of course, very simple, and is not a full scale replacement of what a CMS
+is supposed to do. Realistically, I enjoy writing in LazyVim, so much so that a
+`.txt` file with HTML syntax seems more enjoyable to me, than spending 20 to 50
+hours making an admin dashboard hosted in a different repo, that is supposed to
+connect to my blog database. Too much work, for such little benefit.
 
 ## Data Layer
 
@@ -66,29 +69,31 @@ At the moment, I am simply storing all of the blogposts in the
 My "database" is my ``posts.json`` file, that contains indexes:
 
 ```json
-{
+[
     {
-        "slug": "test-one",
-        "date": "2026-02-26"
-    },
-    {
-        "slug": "test-two",
-        "date": "2026-02-27"
+        "slug": "post-example",
+        "date": "YYYY-MM-DD",
+        "tags": [
+            "{technology|mathematics|linguistics|literature|history}"
+        ],
+        "translations": {
+            "en": {
+                "title": "This is a Title",
+                "description": "This describes the post"
+            }
+        }
     }
-}
+]
 ```
 
 This way, it is easier for me to access the names of specific posts,
 without needing to use functions that directly list files from my folders.
 
-Also, when I upgrade to a CMS, it would make sense to have a foundation
-that is easily portable/comparable to SQL logic, like:
+I do not see this structure changing, since it has been quite intuitive for me to
+add information. I could write a script that generates the metadata faster, but
+again, the time that it would save is not worth the debugging it may present me.
 
-```SQL
-SELECT slug FROM posts;
-```
-
-I don't know, we will see if this system is easy to upgrade, I think it is.
+Overall, I successfully under-engineered the data layer, and I'm proud of it.
 
 ## Internationalization (i18n)
 
@@ -136,7 +141,7 @@ Therefore, as an example, if I were to ask for the following:
 These questions create the URL (not a real URL... yet):
 <https://blog.pokrok.dev/de/post/hello-world?lang=cs>
 
-The actual language content is stored in language versions in the .json file.
+The UI language content is stored in language versions in a `${lang}.json` file.
 Suppose we have a label in the website that says "Read More", and we want to
 provide sufficient localization for French and German. This is the result:
 
@@ -151,7 +156,7 @@ provide sufficient localization for French and German. This is the result:
 ```
 
 Then, when we want to refer to the language, you can simply use the translate
-function (called t to be shortened):
+function (called t to be shortened) on a collection of `data-link` attributes:
 
 ```js
 export function t(key) {
@@ -161,12 +166,16 @@ export function t(key) {
 
 So when we use it in our document, we can say:
 
-```js
-button.textContent = t("read_more")}
+```html
+<element data-link data-i18n="read_more"></element>
 ```
 
+This will be fed into the translation script, where each element has their
+`data-i18n` tag parsed and matched to the respective translation found in the
+.json file. This system just works, and is server-side as well.
+
 So, with all that said, this is how the "translation" would work:
-Load element --> Select text by label key & language state --> Render content
+Load element --> Update text by label key & language state --> Render content
 
 ## Next Steps
 
@@ -174,9 +183,14 @@ I am not exactly sure what I want to upgrade next, but I would say my first
 goal is to get to 10 blogposts, in at least 3 languages; most likely being
 English, French, and German.
 
-### Patch Notes
+Here are some ideas, though:
 
-v0.0.1:
+1. Search bar functionality
+2. Footer section of the website with links
+3. Improving the UX by making cards + title a link
+4. Compact styling of navbar + title when reading an article
+5. Dark mode?
 
-- Initialized README.md with hand-written development document
-- Initialized folder structure and pre-populated files for the project
+Again, I do not know when I wish to tackle these tasks, but if I ever seem to
+be bored and want to work on a web development project, these tasks will be a
+fun few things to try myself.
