@@ -11,5 +11,18 @@
                 "description": "Having a blog is one of the many first projects a web developer can try, and a useful one at that."
             }
         }
+    },
+    {
+        "slug": "migrate-from-vercel",
+        "date": "2026-03-17",
+        "tags": [
+            "technology"
+        ],
+        "translations": {
+            "en": {
+                "title": "Is Self-Hosting Instead of Vercel Worth It?",
+                "description": "Using Dokploy, I found myself tinkering for days to get my own server working; I question if the time is worth the control."
+            }
+        }
     }
 ]
