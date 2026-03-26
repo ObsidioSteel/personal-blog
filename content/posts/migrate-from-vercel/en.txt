@@ -1,0 +1,52 @@
+<p>If you're reading this article, you are accessing this website from a server computer from my house! I know that might not be as exciting as it sounds, but after finally setting it up after days of painful debugging, I am so happy to say that it works now.</p>
+<br>
+<p>However, other than for the purpose of learning, was this migration worth my time? What do I gain from self-hosting my own website, let alone a blog? Allow me to list some of the benefits that motivated me to implement such a seemingly unnecessary change:</p>
+<br>
+<h3>1. Self Sufficiency</h3>
+<br>
+<p>This is my main reason to switch away from Vercel; I want to be able to own the compute that I require. Sure, it may be more expensive up front, but since I had a few old desktops laying around, I figured turning them into servers would be useful. If you have the hardware, I believe you should use what you paid for. In other words, if you can own your services, why rent them?</p>
+<br>
+<p>I already stream my music from a private server I own, running on an old HP desktop from 2012. Today, this computer would be worth less than $100, assuming it isn't broken and still has all the parts. The freedom that I felt from getting my music self-hosted, using Navidrome as a server and Tempo as the client application on my phone, was greater than most of the other tech ideas I could have came up with at the time.</p>
+<br>
+<p>One could say I have the "homelab" bug, but I just see it as using your resources to the best of your capacity.</p>
+<br>
+<h3>2. Legacy Hardware Leftovers</h3>
+<br>
+<p>My main computer is quite strong, but I would never use it to host anything. I use it primarily for general-purpose programming and usage, utilizing my specs the most when doing ML projects and video/photo editing. I also would not want to have my computer running all the time; I would want a more compact and lower-spec build outside my room to be doing the work.</p>
+<br>
+<p>That's why I used my leftover hardware to upgrade two leftover computers enough to be server-ready. I'm blessed to have so much tech at my disposal, but that is just it; I have the tech because I didn't dispose any of it. Many people sell or throw out their old computers, when you can just repurpose them into being extra compute in your basement or garage. Even a closet can do, given that it has an outlet.</p>
+<br>
+<p>If you are not the self-hosting type, keeping legacy technology still has one huge benefit, if you are interested in software and hardware. You can utilize the older parts as a threshold of performance testing, and if you break anything, replacing the broken parts will be relatively cheap due to their age (assuming it was a popular model). You can also use your old hardware as benchmarks for low-spec performance requirements for things like rendering, CI/CD pipelines, and non-multithreaded computing tasks.</p>
+<br>
+<p>It really helps to hoard hardware.</p>
+<br>
+<h3>3. Buy Now, Save Later</h3>
+<br>
+<p>Assuming that you don't have the hardware instead, why not use Vercel or other web-hosting services for your sites? Most of the options have a pretty great hobbyist tier, which is often free, to a point. That "to a point" part is what bothered me a little, not as much as my wasted compute, but the risk of being spammed with requests, causing their server compute to spike and my wallet to be charged, scared me.</p>
+<br>
+<p>I know that you can set safeguards to exit or shut down the server if it gets flooded, but I strongly believe that I would rather just see my PC crash in front of my eyes, as it runs a 'docker stop' command to save itself from needing to restart entirely. I love technology, don't get me wrong, but if you see how much some services can charge you for being ignorant towards exponential traffic growth, you would rather abuse your old boxes of hardware than sleep knowing that anyone can bot swarm your website and run up the bill.</p>
+<br>
+<p>Of course, I am not popular. That situation would never happen to me. I don't even do SEO optimization for this site. However, the chances are never zero. All it takes is one popular query to store my website as a source, and bot requests will come in like the plague. It's peace of mind, in exchange for personal time.</p>
+<br>
+<h3>How I Migrated to Dokploy</h3>
+<br>
+<p>Dokploy makes it really easy to self-host your sites, or so I thought. I followed the documentation, and it didn't work. I tried many configurations, I even wrote a Dockerfile for this repo to run from Nginx on port 80 instead of the classic 3000 for Node. I figured Nginx as a reverse proxy and load balancer would be helpful to have, especially since it provides an extra layer of security, if set up properly.</p>
+<br>
+<p>A few days went by, and I was still reading docker logs from my server's CLI via ssh, and I swear I almost quit. Everyone on forums from Reddit, StackOverflow, and Github were saying "Dokploy is easy!" and "Cloudflare does all the work for you!", so I figured I would try to tinker with Cloudflare tunnels instead (since that is how I got my music server going). Little did I know that I knew nothing about networking in real-life applications.</p>
+<br>
+<p>I love computer networking, but it felt like none of the theory I know about packets, ports, the OSI model, and other things were able to help me. All of the setup, the exhaustive options that both Dokploy and Cloudflare throw at you; it felt like I was trying to find one of infinite combinations of settings to get this to work. The UI for both Cloudflare and Dokploy look deceptively simple; there are so many terms you need to review when debugging just to know your way around them both.</p>
+<br>
+<p>The errors. For the first few days, I was getting errors like "We cannot connect to the server at blog.pokrok.dev" and "Server timeout reached". Both gave me the same result, which was an empty webpage because it couldn't communicate to the IP address of my local machine. However, on day 7 or 8, I decided to start from scratch. I ended up getting a different error; a 404 instead! This was huge news, because it meant that it could communicate with my computer, but it didn't know what exactly to serve. It felt great to get an error I recognized, until 24 hours passed...</p>
+<br>
+<p>After tinkering from scratch for the 3rd time, I ended up getting a different error again, a 502 Bad Gateway error. This was a great sign for me, as I think that a 502 is way more specific than a 404. I spent hours trying to diagnose where exactly the server could not be reached via the cloudflare tunnel, and I got really upset. I knew nothing about docker, which is why I felt so dumbfounded when I realized that it was because the cloudflare tunnel container was not in the same network as all the other dokploy-related containers.</p>
+<br>
+<p>I ran a command to connect the cloudflare tunnel container with the dokploy docker network, and it worked. It took 10 days, spending an hour or two (or sometimes three), pulling my hair out trying to see what the problem was. I did learn quite a bit while struggling, and I promise to check my docker status before throwing a fit about networking issues.</p>
+<br>
+<h3>Was It Worth It?</h3>
+<br>
+<p>Yes. 1 thousand times yes. Not because I get that debugging catharsis of fixing the errors, but because I now have a system to host all the websites I would need using my own hardware. The investment of time and money was a tiny setback, and sure, it felt larger while I was in the depths of debugging hell, but overall I would say it was worth it.</p>
+<br>
+<p>I was able to learn what I didn't know about applied networking and Docker, which made me more confident in recognizing issues in my future projects. I do intend to work more with networking, as I think it is a really interesting field of computer science, but perhaps I should study before starting another project. I don't even know if my current setup is the most secure that it can be; I have to verify the security and redeploy if I make changes.</p>
+<br>
+<p>At the end of the day, nothing easy is worth it, as all rewards are proportional to the difficulty of achieving them. I love being challenged, but boy did this make me lose some hair on my head.</p>
+<br>
