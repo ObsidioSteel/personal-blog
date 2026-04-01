@@ -51,17 +51,19 @@ function renderCard(post, lang, read_more) {
     .join('');
 
   return `
-    <article class="card">
-      <img src="${coverImage}" class="fill-width">
-      <div class="flex margin2">
-        <span class="card-tag">${tag}</span>
-        <div class="card-flags">${flags}</div>
-      </div>
-      <div class="card-info">
-        <h2 class="card-title">${content.title}</h2>
-        <p class="card-desc">${content.description}</p>
-        <a href="/${lang}/post/${slug}/" data-link class="card-link">${read_more}</a>
-      </div>
-    </article>
+    <a class="card" href="/${lang}/post/${slug}/"> 
+      <article> 
+        <img src="${coverImage}" class="fill-width">
+        <div class="flex margin2">
+          <span class="card-tag">${tag}</span>
+          <div class="card-flags">${flags}</div>
+        </div>
+        <div class="card-info">
+          <h2 class="card-title">${content.title}</h2>
+          <p class="card-desc">${content.description}</p>
+          <p data-link class="card-link">${read_more}</p>
+        </div>
+      </article>
+    </a>
   `;
 }
